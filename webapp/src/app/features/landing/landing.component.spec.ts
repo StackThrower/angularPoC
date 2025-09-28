@@ -1,9 +1,10 @@
 import { TestBed } from '@angular/core/testing';
 import { LandingComponent } from './landing.component';
+import { provideRouter } from '@angular/router';
 
 describe('LandingComponent', () => {
   it('should render heading and CTA links', () => {
-    TestBed.configureTestingModule({ imports: [LandingComponent] }).compileComponents();
+    TestBed.configureTestingModule({ imports: [LandingComponent], providers: [provideRouter([])] }).compileComponents();
     const fixture = TestBed.createComponent(LandingComponent);
     fixture.detectChanges();
     const el: HTMLElement = fixture.nativeElement as any;
@@ -11,4 +12,3 @@ describe('LandingComponent', () => {
     expect(el.textContent).toContain('Get started');
   });
 });
-

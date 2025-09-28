@@ -2,6 +2,7 @@ import { TestBed } from '@angular/core/testing';
 import { DashboardComponent } from './dashboard.component';
 import { AuthService } from '../../core/auth/auth.service';
 import { of } from 'rxjs';
+import { provideRouter } from '@angular/router';
 
 class AuthMock { profile() { return of({ id: 1, name: 'John', email: 'john@example.com' }); } }
 
@@ -9,7 +10,7 @@ describe('DashboardComponent', () => {
   it('should render profile data', () => {
     TestBed.configureTestingModule({
       imports: [DashboardComponent],
-      providers: [ { provide: AuthService, useClass: AuthMock } ]
+      providers: [ provideRouter([]), { provide: AuthService, useClass: AuthMock } ]
     }).compileComponents();
 
     const fixture = TestBed.createComponent(DashboardComponent);
@@ -19,4 +20,3 @@ describe('DashboardComponent', () => {
     expect(el.textContent).toContain('john@example.com');
   });
 });
-

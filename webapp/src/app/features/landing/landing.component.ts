@@ -12,7 +12,7 @@ import { RouterLink } from '@angular/router';
         Welcome to <span style="background:linear-gradient(135deg, var(--primary), var(--accent)); -webkit-background-clip:text; background-clip:text; color:transparent;">Angular Auth</span>
       </h1>
       <p style="margin:0; color:var(--muted); font-size:18px;">
-        A basic Angular 18 prototype: sign up, sign in, and JWT handling.
+        A basic Angular 20 prototype: sign up, sign in, and JWT handling.
       </p>
       <div style="display:flex; gap:12px; justify-content:center;">
         <a class="btn" routerLink="/register">Get started</a>

@@ -1,13 +1,12 @@
-import { Component, computed, inject, signal } from '@angular/core';
+import { Component, computed, inject } from '@angular/core';
 import { RouterLink, RouterLinkActive, RouterOutlet } from '@angular/router';
-import { AsyncPipe, NgIf } from '@angular/common';
-import { AuthService } from './core/auth/auth.service';
+import { AuthService } from '@core/auth/auth.service';
 import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet, RouterLink, RouterLinkActive, AsyncPipe, NgIf],
+  imports: [RouterOutlet, RouterLink, RouterLinkActive],
   template: `
     <header class="appbar">
       <div class="container" style="display:flex; gap:16px; align-items:center;">
@@ -16,14 +15,13 @@ import { Router } from '@angular/router';
           <strong>Angular Auth POC</strong>
         </a>
         <span class="spacer"></span>
-        <ng-container *ngIf="!(isAuth())">
+        @if (!isAuth()) {
           <a class="btn outline" routerLink="/login" routerLinkActive="active">Sign in</a>
           <a class="btn" routerLink="/register" style="margin-left:8px;">Sign up</a>
-        </ng-container>
-        <ng-container *ngIf="isAuth()">
+        } @else {
           <a class="btn outline" routerLink="/dashboard" routerLinkActive="active">Dashboard</a>
           <button class="btn" style="margin-left:8px;" (click)="logout()">Log out</button>
-        </ng-container>
+        }
       </div>
     </header>
     <main>

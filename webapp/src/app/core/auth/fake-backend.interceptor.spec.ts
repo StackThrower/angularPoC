@@ -1,4 +1,5 @@
-import { HttpClient, HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
+import { HttpClient } from '@angular/common/http';
+import { provideHttpClient, withInterceptors } from '@angular/common/http';
 import { TestBed } from '@angular/core/testing';
 import { firstValueFrom } from 'rxjs';
 import { fakeBackendInterceptor } from './fake-backend.interceptor';
@@ -9,9 +10,8 @@ describe('fakeBackendInterceptor', () => {
   beforeEach(() => {
     localStorage.clear();
     TestBed.configureTestingModule({
-      imports: [HttpClientModule],
       providers: [
-        { provide: HTTP_INTERCEPTORS, useValue: fakeBackendInterceptor, multi: true }
+        provideHttpClient(withInterceptors([fakeBackendInterceptor]))
       ]
     });
     http = TestBed.inject(HttpClient);
@@ -36,4 +36,3 @@ describe('fakeBackendInterceptor', () => {
     }
   });
 });
-

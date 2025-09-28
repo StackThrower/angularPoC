@@ -1,6 +1,6 @@
-# Angular 18 Auth Prototype
+# Angular 20 Auth Prototype
 
-A basic prototype on Angular 18 with:
+A basic prototype on Angular 20 with:
 
 - Landing page with a nice background and CTA buttons
 - Sign up and sign in (Reactive Forms, validation)
@@ -9,7 +9,7 @@ A basic prototype on Angular 18 with:
 - Fake backend implemented as an Http Interceptor (data stored in `localStorage`)
 
 ## Stack
-- Angular 18 (standalone components)
+- Angular 20 (standalone components)
 - Router, HttpClient, Signals
 - SCSS styles
 
