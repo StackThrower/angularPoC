@@ -32,6 +32,7 @@ import { Router } from '@angular/router';
 export class AppComponent {
   private auth = inject(AuthService);
   private router = inject(Router);
-  isAuth = computed(() => this.auth.isAuthenticated());
+  // Make it reactive by deriving from the auth.user signal
+  isAuth = computed(() => !!this.auth.user());
   logout() { this.auth.logout(); this.router.navigateByUrl('/'); }
 }
